@@ -1,8 +1,30 @@
 package References;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class ArrayMethods {
+	
+	static void shuffle(int[] a) {
+		Random get = new Random();
+		for (int i = 0; i < a.length; i++) {
+			int r = get.nextInt(a.length);
+			int temp = a[i];
+			a[i] = a[r];
+			a[r] = temp;
+		}
+	}
+
+	static void shuffle(long[] a) {
+		Random get = new Random();
+		for (int i = 0; i < a.length; i++) {
+			int r = get.nextInt(a.length);
+			long temp = a[i];
+			a[i] = a[r];
+			a[r] = temp;
+		}
+	}
+	
 	static int maxSubArraySum(int a[])  // Kadane's algorithm
     { 
         int max_so_far = Integer.MIN_VALUE, max_ending_here = 0; 

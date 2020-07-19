@@ -22,19 +22,13 @@ public class NetworkFlow {
 		while(nooFlow > 0) {
 			flow += nooFlow;
 			int cur = sink;
-			System.out.println(cur);
 			while(cur != source) {
 				int prev = parent[cur];
 				capacity[prev][cur] -= nooFlow;
 				capacity[cur][prev] += nooFlow;
 				cur = prev;
-				System.out.println(cur);
 			}
 			nooFlow = bfs(source, sink, parent);
-			System.out.println("FLOW:");
-			System.out.println(flow);
-			//for(int[] each: capacity)
-			//	System.out.println(Arrays.toString(each));
 		}
 		
 		return flow;

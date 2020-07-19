@@ -9,7 +9,7 @@ public class Trie { // for strings, but could be modified to use with arrays
           
         public TrieNode(){  
         	
-        } 
+        }
     }
        
     static TrieNode root;  

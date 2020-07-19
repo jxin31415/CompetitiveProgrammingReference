@@ -26,6 +26,7 @@ public class Hashing {
 			for(int i = 0; i < inverse.length; i++) {
 				inverse[i] = modMultInverse(pow, MOD);
 				pow *= P;
+				pow %= MOD;
 			}
 		}
 		
@@ -143,6 +144,55 @@ public class Hashing {
 		
 		public boolean substringComp(int L1, int R1, int L2, int R2) { // compare two substrings. returns true if they are the same
 			return hash1(L1, R1) == hash1(L2, R2) && hash2(L2, R2) == hash2(L2, R2);
+		}
+	}
+	
+	public static class DecimalHash { 	// strange version of StringHash that allows you to "add" hashes. See https://codeforces.com/contest/898/problem/F
+		
+		public static final long P = 10; // next-largest prime when compared to size of "alphabet"
+		public static final long MOD = 1000000009; // any large prime. the larger it is, the less likely collisions are
+		
+		public long[] hash;
+		public long[] binPow;
+		
+		public DecimalHash(String s) { // preprocess in N log N
+			long hashVal = 0;
+			long pow = P;
+			
+			hash = new long[s.length()];
+			for(int i = 0; i < s.length(); i++) {
+				hashVal = ((hashVal*pow)%MOD + (s.charAt(i) - '0')) % MOD;
+				//pow *= P;
+				//pow %= MOD;
+				hash[i] = hashVal;
+			}
+			
+			binPow = new long[s.length()+2];
+			binPow[0] = 1;
+			for(int i = 1; i < binPow.length; i++) {
+				binPow[i] = binPow[i-1] * 10;
+				binPow[i] %= MOD;
+			}
+			//System.out.println(Arrays.toString(hash));
+		}
+		
+		public long binpow(long a, long b, long m) {
+			a %= m;
+			long res = 1;
+			while (b > 0) {
+				if ((b & 1) == 1)
+					res = res * a % m;
+				a = a * a % m;
+				b >>= 1;
+			}
+			return res;
+		}
+		
+		public long hash(int L, int R) { // L, R inclusive. Returns hash value of substring
+			long val = hash[R] - (L == 0 ? 0 : hash[L-1]) % MOD * binPow[R-L+1] % MOD;
+			if(val < 0)
+				val += MOD;
+			return (val) % MOD;
 		}
 	}
 }

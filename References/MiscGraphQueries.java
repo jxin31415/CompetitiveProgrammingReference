@@ -3,7 +3,7 @@ package References;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MiscGraphQueries {
+public class MiscGraphQueries { // taken from GeeksForGeeks
 	static List<List<Integer>> adjList = new ArrayList<>();
 	
 	
@@ -16,6 +16,7 @@ public class MiscGraphQueries {
 				return true; 
 		return false; 
 	}
+	
 	static boolean isCyclicUtil(int i, boolean[] visited, boolean[] recStack) { 
 		if (recStack[i]) 
 			return true;

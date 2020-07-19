@@ -4,7 +4,6 @@ import java.io.*;
 
 public class Dijkstra { 
 
-
 	static class Node implements Comparator<Node> { 
 	    public int node; 
 	    public long cost; 
@@ -31,7 +30,8 @@ public class Dijkstra {
 			return node + " " + cost;
 		}
 	} 
-	static class DPQ { 
+	
+	static class DPQ { // Dijkstras in NlogN with PriorityQueue
 	    private long dist[]; 
 	    private int[] parent;
 	    private Set<Integer> settled; 

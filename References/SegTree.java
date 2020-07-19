@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SegTree {
+	
+	// Basic segtree. Update on index and min query
 	static class segt {
         long[] t;
         int N;
@@ -60,8 +62,7 @@ public class SegTree {
         }
     }
 	
-	// Note: this does not work for sum queries, because you have to multiply the lazy propogation by the # of elements.
-	// See below this class for addition on segments and sum query
+	// Most basic lazy propogation example.
 	static class LazyProp { // lazy propogation, aka range updates. Addition on segments and max query
 		
 		int[] t;
@@ -119,6 +120,9 @@ public class SegTree {
 		
 	}
 	
+	
+	// Example of lazy propogation where you must modify the segtree internally. 
+	// value[parent] = delta * numChildren[parent]
 	static class LazyPropSum {
 		
 		int[] t;
@@ -193,6 +197,7 @@ public class SegTree {
         }
 	}
 	
+	// Least common ancestor using segtree
 	static class LCA {
 		int[] height, first, segtree;
 	    boolean[] visited;

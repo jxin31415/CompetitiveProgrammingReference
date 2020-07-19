@@ -2,6 +2,16 @@ package References;
 import java.util.*;
 import java.io.*;
 
+// My initial dive into basic algorithm types
+
+/*
+ * 
+ *  Greedy: the idea that in order to optimize step N, you should first optimize step N-1, which in turn should be built
+ *  off an optimized step N-2, step N-3, etc...
+ *  
+ */
+
+
 public class Greedy { // program to find smallest combination of coins to add up to a given total
 					  // proof that a lot of times, greedy doesn't work
 	static int[] coinValues = new int[3]; // change to desired coin values(sorted)

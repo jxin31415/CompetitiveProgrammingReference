@@ -2,6 +2,9 @@ package References;
 import java.util.*;
 import java.io.*;
 
+// My initial dive into graph theory
+
+
 // Graph theory:
 // Each VERTEX points to its factors; for example, 6 points to 1, 2, 3, and 6.
 // Each EDGE can also contain a WEIGHT containing the difference between the factor and the number.

@@ -1,8 +1,15 @@
 package References;
 import java.util.*;
 
-public class IndexedTreeStruct {	// Same functionality as OrderStatisticTree, but far messier
-									// Can store longs, unlike OrderStatisticTree.
+/*
+ * 
+ * Not my class. 
+ * Same functionality as OrderStatisticTree, but far messier. Overhead means it generally runs slower than NlogNlogN
+ * Can store longs, unlike OrderStatisticTree.
+ * 
+ */
+
+public class IndexedTreeStruct {
 	
 	public static class IndexedTreeSet<E> extends java.util.AbstractSet<E> implements IndexedNavigableSet<E>, Cloneable, java.io.Serializable {
 		

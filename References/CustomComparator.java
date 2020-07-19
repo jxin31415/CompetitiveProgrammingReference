@@ -38,7 +38,7 @@ public class CustomComparator {
 		
 		Collections.sort(lis, sorter);
 		
-		System.out.println("Sorted(based on value 1 x value 2, ascending): " + lis);
+		System.out.println("Sorted(based on value 1 * value 2, ascending): " + lis);
 	}
 	
 }

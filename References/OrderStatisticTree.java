@@ -1,7 +1,7 @@
 package References;
 import java.util.*;
 
-public class OrderStatisticTree { 	// UNTESTED. Same functionality as IndexedTreeSet, but with duplicates(I think) and cleaner
+public class OrderStatisticTree { 	// Same functionality as IndexedTreeSet, but with duplicates(I think) and cleaner
 									// However, can only store ints, not longs
     static class OSTree {
         int[] value;

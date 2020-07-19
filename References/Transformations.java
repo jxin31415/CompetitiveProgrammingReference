@@ -2,6 +2,7 @@ package References;
 import java.util.*;
 
 public class Transformations {
+	
 	//assuming rectangle shapes
 	public static char[][] rotate90CW(char[][] pic){ //rotate 90 degrees clockwise, aka 270 degrees counter-clockwise
 		char[][] t = new char[pic[0].length][pic.length];
@@ -27,7 +28,7 @@ public class Transformations {
 		return rotate90CW(rotate90CW(pic)); //got lazy
 	}
 	
-	public static char[][] flipOverY(char[][] pic){ //flip over the vertical axis
+	public static char[][] reflectY(char[][] pic){ //flip over the vertical axis
 		char[][] t = new char[pic.length][pic[0].length];
 		for(int i = 0; i < pic[0].length; i++) {
 			for(int j = 0; j < pic.length; j++) {
@@ -37,7 +38,7 @@ public class Transformations {
 		return t;
 	}
 	
-	public static char[][] flipOverX(char[][] pic){ //flip over the horizontal axis
+	public static char[][] reflectX(char[][] pic){ //flip over the horizontal axis
 		char[][] t = new char[pic.length][pic[0].length];
 		for(int i = 0; i < pic[0].length; i++) {
 			for(int j = 0; j < pic.length; j++) {

@@ -3,7 +3,25 @@ import java.util.*;
 import java.io.*;
 
 public class FloodFill { 
+	
+	// My initial dive into floodfill and dfs
+	
 	static char[][] matrix = {{'#', ' ', ' ', ' '}, {' ', ' ', '#', '#'}, {' ', '#', '#', ' '}, {'#', ' ', '#', ' '}};
+	
+	public static void floodFill(boolean[][] visited, int i, int j, int currentRoom) {
+		if(!inBounds(i, j) || visited[i][j] || matrix[i][j] == '#')
+			return;
+		visited[i][j] = true;
+		matrix[i][j] = ("" + currentRoom).charAt(0);
+		floodFill(visited, i + 1, j, currentRoom);
+		floodFill(visited, i - 1, j, currentRoom);
+		floodFill(visited, i, j + 1, currentRoom);
+		floodFill(visited, i, j - 1, currentRoom);
+	}
+	
+	public static boolean inBounds(int i, int j) {
+		return (i >= 0 && j >= 0 && i < matrix.length  && j < matrix[0].length);
+	}
 	
 	public static void main (String [] args) throws IOException {
 		System.out.println("Picture this escape room: \n ____");
@@ -33,20 +51,5 @@ public class FloodFill {
 			System.out.println("|");
 		}
 		System.out.println(" ----\n");
-	}
-	
-	public static void floodFill(boolean[][] visited, int i, int j, int currentRoom) {
-		if(!inBounds(i, j) || visited[i][j] || matrix[i][j] == '#')
-			return;
-		visited[i][j] = true;
-		matrix[i][j] = ("" + currentRoom).charAt(0);
-		floodFill(visited, i + 1, j, currentRoom);
-		floodFill(visited, i - 1, j, currentRoom);
-		floodFill(visited, i, j + 1, currentRoom);
-		floodFill(visited, i, j - 1, currentRoom);
-	}
-	
-	public static boolean inBounds(int i, int j) {
-		return (i >= 0 && j >= 0 && i < matrix.length  && j < matrix[0].length);
 	}
 }

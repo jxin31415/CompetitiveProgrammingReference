@@ -47,6 +47,8 @@ public class PatternSearching {
 	
 	
 	// Knuth-Morris-Pratt algorithm for pattern searching
+	
+	
 	public static String maxPrefSuf(StringBuilder sb) { // Auxiliary method to find the largest prefix that is also a suffix of String sb
 		int N = sb.length();
 		int[] maxPrefSuf = new int[N];

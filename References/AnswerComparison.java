@@ -8,21 +8,27 @@ public class AnswerComparison {
 	
     public static void main(String[] args) throws Exception {
     	FastReader scan = new FastReader("file1.out");
-    	FastReader scan2 = new FastReader("file2.out.txt");
+    	FastReader scan2 = new FastReader("file2.out");
+    	
+    	long start = System.currentTimeMillis();
         
     	String s1 = scan.nextLine();
     	String s2 = scan2.nextLine();
     	int i = 0;
     	while(s1 != null) {
+    		if(System.currentTimeMillis() - start > 10000) {
+    			System.out.println("Time Limit Exceeded");
+    			System.exit(0);
+    		}
     		i++;
     		if(!s1.equals(s2)) {
-    			System.out.println("WRONG ANSWER : line " + i);
+    			System.out.println("Wrong answer : line " + i);
     			System.exit(0);
     		}
     		s1 = scan.nextLine();
     		s2 = scan2.nextLine();
     	}
-    	System.out.println("ACCEPTED");
+    	System.out.println("Accepted");
     }
     
 	static class FastReader {

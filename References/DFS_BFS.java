@@ -4,6 +4,46 @@ import java.io.*;
 
 public class DFS_BFS { //program to find sets of numbers that add up to a given larger number (no permutations!)
 	
+	public static List<List<Integer>> adj = new ArrayList<>();
+	// be sure to set up with given edges
+	
+	public static void dfs(int node, int parent) {
+		
+		process(node);
+		
+		for(int each: adj.get(node)) {
+			if(each != parent) { // alternative: if(!visited[each])
+				dfs(each, node);
+			}
+		}
+	}
+	
+	public static void bfs() {
+		Queue<Integer> queue = new LinkedList<>();
+		boolean[] visited = new boolean[adj.size()];
+		
+		queue.add(1); // add root
+		
+		while(queue.size() > 0) {
+			int node = queue.poll();
+			visited[node] = true;
+			process(node);
+			
+			for(int each: adj.get(node)) {
+				if(!visited[each]) {
+					queue.add(each);
+				}
+			}
+		}
+	}
+	
+	public static void process(int node) {
+		System.out.println(node);
+	}
+	
+	
+	// An initial introduction to dfs and bfs
+	
 	public static void DFS(int num, List<Integer> lis, int currentSum, int start) { // Depth first search
 		if(currentSum == num) {
 			System.out.println(lis);
