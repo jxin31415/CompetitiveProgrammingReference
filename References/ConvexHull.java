@@ -2,6 +2,78 @@ package References;
 import java.util.*;
 
 public class ConvexHull {
+	
+	static class Line {
+		long m;
+		long b;
+		public Line(long M, long B) {
+			m = M; b = B;
+		}
+		
+		public long valueAt(long x) {
+			return m * x + b;
+		}
+		
+		public double intersectionAt(Line o) { // returns x value of intersection
+			return ((double)o.b - b) / (m - o.m);
+		}
+	}
+	
+	/*
+	 * Convex hull trick: a DP optimization
+	 * 
+	 * Given some set of lines, we want to find the maximum y-value from those lines at some x-value.
+	 * In other words, we are trying to find
+	 * 
+	 * max { m_i * x + b_i } for some x value.
+	 * 
+	 * Supported operations:
+	 * 	1. Query. Query for the maximum at some x value.
+	 * 	2. Insert. Insert a new line / function.
+	 * 
+	 * Note that the actual operations can be very different depending on whether the operations are sorted by x or y, if they're ascending or descending,
+	 * if lines can be parallel, etc.
+	 * 
+	 * In this case, we are assuming are no parallel lines and the operations are sorted in increasing x value and decreasing y value.
+	 * 
+	 */
+	public static void convexHullTrick(Queue<Integer> operations, Queue<Integer> queries, Queue<Line> insertions) {
+		ArrayDeque<Line> deq = new ArrayDeque<>(); // store the lines in convex hull
+
+		while(operations.size() > 0) {
+			int o = operations.poll();
+			if(o == 0) {
+				// Query
+				int q = queries.poll();
+				
+				// change according to problem specifications
+				Line right = deq.pollLast();
+				while(deq.size() > 0 && right.valueAt(q) <= deq.peekLast().valueAt(q)) {
+					right = deq.pollLast();
+				}
+				deq.addLast(right);
+				
+				
+				// print answer
+				System.out.println(right.valueAt(q));
+			} else {
+				// Insertion
+				Line insert = insertions.poll();
+				
+				// change according to problem specifications
+				Line left = deq.pollFirst();
+				while(deq.size() > 0 && insert.intersectionAt(deq.peekFirst()) >= left.intersectionAt(deq.peekFirst())) {
+					left = deq.pollFirst();
+				}
+				deq.addFirst(left);
+				deq.addFirst(insert);
+				
+			}
+		}
+	}
+	
+	
+	
 	boolean cw(Point a, Point b, Point c) {
         return a.x*(b.y-c.y)+b.x*(c.y-a.y)+c.x*(a.y-b.y) < 0;
     }
