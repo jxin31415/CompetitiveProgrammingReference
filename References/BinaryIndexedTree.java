@@ -13,6 +13,7 @@ public class BinaryIndexedTree { // also known as a Fenwick tree
 		
 		public BITree(int[] arr) {
 			N = arr.length;
+			tree = new int[arr.length];
 			for(int i = 0; i < arr.length; i++) {
 				add(i, arr[i]);
 			}

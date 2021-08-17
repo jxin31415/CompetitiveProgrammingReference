@@ -10,6 +10,7 @@ public class SegTree {
 	static class segt {
         long[] t;
         int N;
+        
         public segt(int n) {
             t = new long[4*n];
             N = n;
