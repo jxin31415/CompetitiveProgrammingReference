@@ -1,4 +1,5 @@
 import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -30,8 +31,11 @@ public class Solution implements Runnable{
 		public void solve(int testNumber, FastReader sc, PrintWriter out) {
 			
 		}
+		
 	}
-	
+	static long modInverse(long N, long MOD) {
+		return binpow(N, MOD - 2, MOD);
+	}
 	static long modDivide(long a, long b, long MOD) {
 		a %= MOD;
 		return (binpow(b, MOD-2, MOD) * a) % MOD;
@@ -65,14 +69,36 @@ public class Solution implements Runnable{
         
         return b;
     }
-	static void sort(int[] x){
-		shuffle(x);
-		Arrays.sort(x);
+	
+	static void shuffle(Object[] a) {
+		Random get = new Random();
+		for (int i = 0; i < a.length; i++) {
+			int r = get.nextInt(a.length);
+			Object temp = a[i];
+			a[i] = a[r];
+			a[r] = temp;
+		}
 	}
-	static void sort(long[] x){
-		shuffle(x);
-		Arrays.sort(x);
+	
+	static void shuffle(int[] a) {
+		Random get = new Random();
+		for (int i = 0; i < a.length; i++) {
+			int r = get.nextInt(a.length);
+			int temp = a[i];
+			a[i] = a[r];
+			a[r] = temp;
+		}
 	}
+	static void shuffle(long[] a) {
+		Random get = new Random();
+		for (int i = 0; i < a.length; i++) {
+			int r = get.nextInt(a.length);
+			long temp = a[i];
+			a[i] = a[r];
+			a[r] = temp;
+		}
+	}
+	
 	static class tup implements Comparable<tup>, Comparator<tup>{
 		int a, b;
 		tup(int a,int b){
@@ -111,26 +137,6 @@ public class Solution implements Runnable{
 	    public String toString() {
 	    	return a + " " + b;
 	    }
-	}
-	
-	static void shuffle(int[] a) {
-		Random get = new Random();
-		for (int i = 0; i < a.length; i++) {
-			int r = get.nextInt(a.length);
-			int temp = a[i];
-			a[i] = a[r];
-			a[r] = temp;
-		}
-	}
-
-	static void shuffle(long[] a) {
-		Random get = new Random();
-		for (int i = 0; i < a.length; i++) {
-			int r = get.nextInt(a.length);
-			long temp = a[i];
-			a[i] = a[r];
-			a[r] = temp;
-		}
 	}
 
 	static class FastReader {
