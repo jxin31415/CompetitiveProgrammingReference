@@ -43,6 +43,52 @@ public class Tuple {
 	    }
 	}
 	
+	static class triple implements Comparable<triple>, Comparator<triple>{
+		int a, b, c;
+		triple(int a,int b, int c){
+			this.a=a;
+			this.b=b;
+			this.c=c;
+		}
+		triple(int a,int b){
+			this.a=a;
+			this.b=b;
+			this.c=0;
+		}
+		public triple() {
+		}
+		@Override
+		public int compareTo(triple o){
+			return Integer.compare(c,o.c);
+		}
+		@Override
+		public int compare(triple o1, triple o2) {
+			return Integer.compare(o1.c, o2.c);
+		}
+		
+		@Override
+	    public int hashCode() {
+			return Objects.hash(a, Objects.hash(b, c));
+	    }
+ 
+	    @Override
+	    public boolean equals(Object obj) {
+	    	if (this == obj)
+                return true;
+	    	if (obj == null)
+                return false;
+	    	if (getClass() != obj.getClass())
+                return false;
+	    	triple other = (triple) obj;
+	    	return a==other.a && b==other.b && c==other.c;
+	    }
+	    
+	    @Override
+	    public String toString() {
+	    	return a + " " + b + " " + c;
+	    }
+	}
+	
 	public static class Pair<L,R> implements Comparator<Pair<L,R>>, Comparable<Pair<L,R>>{
 
 		public final L left;

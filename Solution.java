@@ -14,7 +14,7 @@ public class Solution implements Runnable{
     }
 	public void run() {
 		FastReader scan = new FastReader();
-        PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out), true);
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
 //		try {
 //            out = new PrintWriter("file.out");
 //        } catch (FileNotFoundException e) {
@@ -33,7 +33,6 @@ public class Solution implements Runnable{
 		static final long OO = Long.MAX_VALUE;
 
 		public void solve(int testNumber, FastReader sc, PrintWriter out) {
-		    
 		}
 	}
 	

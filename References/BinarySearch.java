@@ -14,9 +14,10 @@ public class BinarySearch {
         } 
         return -1; 
     } 
-    int binarySearchInequality(boolean[] arr) { // given an array of booleans with x consecutive falses followed by
-                                                // (n - x) consecutive trues, returns the index of the first true
-//      int lo = 0, hi = arr.length - 1; 
+    
+	int binarySearchInequality(boolean[] arr) { // given an array of booleans with x consecutive falses followed by
+												// (n - x) consecutive trues, returns the index of the first true
+//		int lo = 0, hi = arr.length - 1; 
 //        while (lo < hi-1) { 
 //            int mid = (lo + hi) / 2; 
 //              if (arr[mid]) 
@@ -26,9 +27,9 @@ public class BinarySearch {
 //        } 
 //        
 //        if(arr[lo])
-//          return lo;
+//        	return lo;
 //        if(arr[hi])
-//          return hi;
+//        	return hi;
 //        return -1;
         
         // Alternate implementation
@@ -41,7 +42,7 @@ public class BinarySearch {
                 hi = mid-1;
                 ans = mid;
             } else {
-                lo = mid+1;
+            	lo = mid+1;
             }
         }
      
