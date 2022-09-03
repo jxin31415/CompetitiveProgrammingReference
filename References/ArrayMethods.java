@@ -38,7 +38,7 @@ public class ArrayMethods {
                 max_ending_here = 0; 
         } 
         return max_so_far; 
-    } 
+    }
 	
 	static class MyArray {        
 	    private int[] arrayInstance;
@@ -49,10 +49,7 @@ public class ArrayMethods {
 
 	    @Override
 	    public int hashCode() {
-	            final int prime = 31;
-	            int result = 1;
-	            result = prime * result + Arrays.hashCode(arrayInstance);
-	            return result;
+	            return Arrays.hashCode(arrayInstance);
 	    }
 
 	    @Override

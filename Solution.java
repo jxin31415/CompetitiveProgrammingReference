@@ -14,21 +14,32 @@ public class Solution implements Runnable{
     }
 	public void run() {
 		FastReader scan = new FastReader();
-        PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
-		//PrintWriter out = new PrintWriter("file.out");
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out), true);
+//		try {
+//            out = new PrintWriter("file.out");
+//        } catch (FileNotFoundException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
 		Task solver = new Task();
 		int t = scan.nextInt();
-		//int t = 1;
+//		int t = 1;
 		for(int i = 1; i <= t; i++) solver.solve(i, scan, out);
 		out.close();
 	}
 
 	static class Task {
-		static final int inf = Integer.MAX_VALUE;
+		static final int oo = Integer.MAX_VALUE;
+		static final long OO = Long.MAX_VALUE;
 
 		public void solve(int testNumber, FastReader sc, PrintWriter out) {
-			
+		    
 		}
+	}
+	
+	static long modDivide(long a, long b, long MOD) {
+		a %= MOD;
+		return (binpow(b, MOD-2, MOD) * a) % MOD;
 	}
 	static long binpow(long a, long b, long m) {
 		a %= m;
@@ -41,6 +52,24 @@ public class Solution implements Runnable{
 		}
 		return res;
 	}
+	static int[] reverse(int a[]) 
+    { 
+        int[] b = new int[a.length]; 
+        for (int i = 0, j = a.length; i < a.length; i++, j--) { 
+            b[j - 1] = a[i]; 
+        } 
+        
+        return b;
+    }
+	static long[] reverse(long a[]) 
+    { 
+        long[] b = new long[a.length]; 
+        for (int i = 0, j = a.length; i < a.length; i++, j--) { 
+            b[j - 1] = a[i]; 
+        } 
+        
+        return b;
+    }
 	static void sort(int[] x){
 		shuffle(x);
 		Arrays.sort(x);
@@ -153,6 +182,37 @@ public class Solution implements Runnable{
 			}
 			return str;
 		}
+		
+		int[] readArray(int size) {
+			int[] a = new int[size];
+			for(int i = 0; i < size; i++) {
+				a[i] = nextInt();
+			}
+			return a;
+		}
+		
+		long[] readLongArray(int size) {
+			long[] a = new long[size];
+			for(int i = 0; i < size; i++) {
+				a[i] = nextLong();
+			}
+			return a;
+		}
+	}
+	
+	static void dbg(int[] arr) {
+		System.out.println(Arrays.toString(arr));
+	}
+	static void dbg(long[] arr) {
+		System.out.println(Arrays.toString(arr));
+	}
+	static void dbg(boolean[] arr) {
+		System.out.println(Arrays.toString(arr));
 	}
 
+	static void dbg(Object... args) {
+        for (Object arg : args)
+            System.out.print(arg + " ");
+        System.out.println();
+    }
 }

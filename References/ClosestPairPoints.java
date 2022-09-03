@@ -3,6 +3,7 @@ package References;
 import java.util.*;
 
 public class ClosestPairPoints {
+    
 	public static class ClosestPair {
 		
 		  // Each row in points represents a point (x, y)

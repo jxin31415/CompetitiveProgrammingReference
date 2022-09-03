@@ -16,7 +16,7 @@ public class SegTree {
         }
         
         void build(long a[]) {
-        	build(a, 1, 0, N-1);
+            build(a, 1, 0, N-1);
         }
         
         void build(long a[], int v, int tl, int tr) {
@@ -31,7 +31,7 @@ public class SegTree {
         }
         
         long queryMin(int l, int r) {
-        	return queryMin(1, 0, N-1, l, r);
+            return queryMin(1, 0, N-1, l, r);
         }
  
         long queryMin(int v, int tl, int tr, int l, int r) {
@@ -45,7 +45,7 @@ public class SegTree {
         }
         
         void update(int pos, int new_val) {
-        	update(1, 0, N-1, pos, new_val);
+            update(1, 0, N-1, pos, new_val);
         }
  
         void update(int v, int tl, int tr, int pos, long new_val) {
@@ -65,8 +65,8 @@ public class SegTree {
 	// Most basic lazy propogation example.
 	static class LazyProp { // lazy propogation, aka range updates. Addition on segments and max query
 		
-		int[] t;
-		int[] lazy;
+	int[] t;
+	int[] lazy;
         int N;
         public LazyProp(int n) {
             t = new int[4*n];

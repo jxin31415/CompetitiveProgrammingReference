@@ -11,7 +11,7 @@ public class Trie { // for strings, but could be modified to use with arrays
         	
         }
     }
-       
+    
     static TrieNode root;  
     
     // Insert a string into Trie

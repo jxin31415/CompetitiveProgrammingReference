@@ -2,6 +2,7 @@ package References;
 import java.util.*;
 
 public class BinaryLiftingLCA {
+    
 	public static class LCA {
 		int N, L;
 		List<Set<Integer>> adjList;
