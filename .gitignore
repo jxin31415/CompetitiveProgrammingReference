@@ -1,0 +1,6 @@
+*.DS_Store
+*.class
+UTPC_problems/*/test/input/
+UTPC_problems/*/test/output/
+UTPC_problems/*/test/test.zip
+
